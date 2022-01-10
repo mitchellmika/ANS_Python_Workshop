@@ -16,7 +16,7 @@ carValue = multiplier * ((car_mpg * 1500) - (car_age * 2000)) / (car_miles * 0.0
 car2_mpg = 40
 car2_miles = 100000
 car2_age = 5
-car2_isWorking = True
+car2_isWorking = False
 
 if car2_isWorking:
     multiplier = 1
@@ -27,7 +27,7 @@ carValue2 = multiplier * ((car2_mpg * 1500) - (car2_age * 2000)) / (car2_miles *
 car3_mpg = 30
 car3_miles = 50000
 car3_age = 5
-car3_isWorking = True
+car3_isWorking = False
 
 if car3_isWorking:
     multiplier = 1
@@ -69,22 +69,22 @@ car_age = 5
 car_isWorking = True
 carValue = CarValue(car_mpg, car_miles, car_age, car_isWorking)
 
-car2_mpg = 30
+car2_mpg = 40
 car2_miles = 100000
 car2_age = 5
-car2_isWorking = True
+car2_isWorking = False
 carValue2 = CarValue(car2_mpg, car2_miles, car2_age, car2_isWorking)
 
 car3_mpg = 30
-car3_miles = 100000
+car3_miles = 50000
 car3_age = 5
-car3_isWorking = True
+car3_isWorking = False
 carValue3 = CarValue(car3_mpg, car3_miles, car3_age, car3_isWorking)
 
 car4_mpg = 30
 car4_miles = 100000
 car4_age = 5
-car4_isWorking = True
+car4_isWorking = False
 carValue4 = CarValue(car4_mpg, car4_miles, car4_age, car4_isWorking)
 
 print(f"Total value: {carValue + carValue2 + carValue3 + carValue4}")
