@@ -1,0 +1,71 @@
+class Car:
+    def __init__(self, mpg, miles, age, isWorking, func):
+        self.mpg = mpg
+        self.miles = miles
+        self.age = age
+        self.isWorking = isWorking
+        self.multiplierFunc = func
+    
+    def GetValue(self):
+        multiplier = self.multiplierFunc(self.isWorking, self.age)
+        carValue = multiplier * ((self.mpg * 1500) - (self.age * 2000)) / (self.miles * 0.00005)
+        
+        return carValue
+    
+    def DisplayStats(self):
+        print(f"Age: {self.age} years")
+        print(f"Fuel Economy: {self.mpg} MPG")
+        print(f"Miles driven: {self.miles} miles")
+        print(f"Car is operational: {self.isWorking}")
+        print(f"Value: ${self.GetValue()}")
+
+def NissanMultiplier(isWorking, age):
+    if isWorking:
+        multiplier = 1
+    elif not isWorking and age < 5:
+        multiplier = 0.4
+    else:
+        multiplier = 0.2
+    
+    return multiplier
+
+def HondaMultiplier(isWorking, age):
+    if isWorking:
+        multiplier = 1
+    elif not isWorking and age < 7:
+        multiplier = 0.4
+    else:
+        multiplier = 0.2
+    
+    return multiplier
+        
+def ToyotaMultiplier(isWorking, age):
+    if isWorking:
+        multiplier = 1
+    elif not isWorking and age < 3:
+        multiplier = 0.4
+    else:
+        multiplier = 0.2
+    
+    return multiplier
+
+def CarValue(mpg, miles, age, isWorking, brandFunc):
+    multiplier = brandFunc(isWorking, age)
+    carValue = multiplier * ((mpg * 1500) - (age * 2000)) / (miles * 0.00005)
+    
+    return carValue
+
+
+car1 = Car(30, 100000, 5, True, HondaMultiplier)
+car2 = Car(40, 100000, 4, False, NissanMultiplier)
+car3 = Car(15, 50000, 7, True, ToyotaMultiplier)
+car4 = Car(20, 120000, 6, False, NissanMultiplier)
+
+car1.DisplayStats()
+print()
+car2.DisplayStats()
+print()
+car3.DisplayStats()
+print()
+car4.DisplayStats()
+print()
