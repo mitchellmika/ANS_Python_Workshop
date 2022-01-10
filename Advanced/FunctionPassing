@@ -1,0 +1,62 @@
+def NissanMultiplier(isWorking, age):
+    if isWorking:
+        multiplier = 1
+    elif not isWorking and age < 5:
+        multiplier = 0.4
+    else:
+        multiplier = 0.2
+    
+    return multiplier
+
+def HondaMultiplier(isWorking, age):
+    if isWorking:
+        multiplier = 1
+    elif not isWorking and age < 7:
+        multiplier = 0.4
+    else:
+        multiplier = 0.2
+    
+    return multiplier
+        
+def ToyotaMultiplier(isWorking, age):
+    if isWorking:
+        multiplier = 1
+    elif not isWorking and age < 3:
+        multiplier = 0.4
+    else:
+        multiplier = 0.2
+    
+    return multiplier
+
+def CarValue(mpg, miles, age, isWorking, brandFunc):
+    multiplier = brandFunc(isWorking, age)
+    carValue = multiplier * ((mpg * 1500) - (age * 2000)) / (miles * 0.00005)
+    
+    return carValue
+
+
+car_mpg = 30
+car_miles = 100000
+car_age = 5
+car_isWorking = True
+carValue = CarValue(car_mpg, car_miles, car_age, car_isWorking, HondaMultiplier)
+
+car2_mpg = 30
+car2_miles = 100000
+car2_age = 5
+car2_isWorking = False
+carValue2 = CarValue(car2_mpg, car2_miles, car2_age, car2_isWorking, ToyotaMultiplier)
+
+car3_mpg = 30
+car3_miles = 100000
+car3_age = 5
+car3_isWorking = True
+carValue3 = CarValue(car3_mpg, car3_miles, car3_age, car3_isWorking, NissanMultiplier)
+
+car4_mpg = 30
+car4_miles = 100000
+car4_age = 5
+car4_isWorking = False
+carValue4 = CarValue(car4_mpg, car4_miles, car4_age, car4_isWorking, ToyotaMultiplier)
+
+print(f"Total value: {carValue + carValue2 + carValue3 + carValue4}")
